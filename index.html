@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <form action="#">
+          <table>
+            <tr>
+                <td>  <input type="number" id="n1"></td>
+            </tr>
+            <tr>
+                <td>  <input type="number" id="n2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Evaluate" id="button"></td>
+            </tr>
+            <tr>
+                <td><h1 id="ans"></h1>
+                </td>
+            </tr>
+          </table>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#button').click(function(){
+                function BMI(){
+                    var w=$('#n1').val();  // kg
+                    var h=$('#n2').val();  // cm
+                    var bmi=w/(h**2)
+                    return bmi.toFixed(2);
+
+                }
+                function BMIState(){
+
+                    if(BMI() <= 18.4){
+                        $('#ans').html(BMI()+ " Your are Underwaight")
+
+                    }
+                    else if(BMI()>= 18.5 && BMI()<=24.9 ){
+                        $('#ans').html(BMI()+ " Your are Normal")
+
+                    }
+                    else if(BMI()>= 25.0 && BMI()<=39.9 ){
+                        $('#ans').html(BMI()+ " Your are Overwight")
+
+                    }
+                    else{
+                        $('#ans').html(BMI()+ " Your are Obese")
+                    }
+
+                }
+                
+                
+                BMIState()
+               
+             
+            })
+        })
+    </script>
+</body>
+</html>
